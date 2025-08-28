@@ -1,4 +1,4 @@
-name: CI - Cypress Tests - Ambev
+name: CI - Cypress Tests
 
 on:
   push:
@@ -23,9 +23,6 @@ jobs:
 
       - name: Start application (if needed)
         run: |
-          # Se precisar subir backend/local server
-          # npm run start &
-          echo "Caso tenha backend, descomente e ajuste aqui"
         shell: bash
 
       - name: Run Cypress tests
@@ -38,7 +35,7 @@ jobs:
 
       - name: Upload Cypress videos/screenshots
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-artifacts
           path: |
