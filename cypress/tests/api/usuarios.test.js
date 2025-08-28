@@ -3,19 +3,6 @@ import Usuarios from "../../support/requests/Usuarios"
 import { faker } from '@faker-js/faker'
 
 describe('Test **/API /usuarios', () => {
-  let token;
-
-  beforeEach(() => {
-    // const payload = {
-    //   email: 'joaovandrade30@gmail.com',
-    //   password: 'CcO21377@',
-    // }
-
-    // Login.postLogin(payload).then(response => {
-    //   token = response.body.authorization
-    // })
-  })
-
   context('Listar usuários', () => {
     it('Listar todos usuários', () => {
       Usuarios.getUsuarios().then(response => {
