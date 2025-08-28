@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker'
 describe('Test **/API /usuarios', () => {
   context('Listar usuários', () => {
     it('Listar todos usuários', () => {
-      Usuarios.getUsuarios().then((response) => {
+      Usuarios.getUsuarios().then(response => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('usuarios')
         expect(response.body).to.have.property('quantidade')
@@ -15,7 +15,7 @@ describe('Test **/API /usuarios', () => {
     it('Listar um único usuário', () => {
       let usuarioId = '0L5lq3Nm2CI802Vq'
 
-      Usuarios.getUsuario(usuarioId).then((response) => {
+      Usuarios.getUsuario(usuarioId).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('nome')
         expect(response.body).to.have.property('email')
@@ -28,7 +28,7 @@ describe('Test **/API /usuarios', () => {
     it('Buscar um usuário que não existe', () => {
       let usuarioId = 'A7K9X2M4P8Q1R6T5'
 
-      Usuarios.getUsuario(usuarioId).then((response) => {
+      Usuarios.getUsuario(usuarioId).then(response => {
         expect(response.status).to.eq(400)
         expect(response.body.message).to.eq('Usuário não encontrado')
       })
@@ -44,7 +44,7 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.postUsuarios(payload).then((response) => {
+      Usuarios.postUsuarios(payload).then(response => {
         expect(response.status).to.eq(201)
         expect(response.body).to.have.property('message')
         expect(response.body).to.have.property('_id')
@@ -59,7 +59,7 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.postUsuarios(payload).then((response) => {
+      Usuarios.postUsuarios(payload).then(response => {
         console.log(response)
         expect(response.status).to.eq(400)
         expect(response.body.message).to.eq('Este email já está sendo usado')
@@ -78,7 +78,7 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.postUsuarios(payload).then((response) => {
+      Usuarios.postUsuarios(payload).then(response => {
         id = response.body._id
       })
     })
@@ -91,7 +91,7 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.putUsuario(payload, id).then((response) => {
+      Usuarios.putUsuario(payload, id).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body.message).to.eq('Registro alterado com sucesso')
       })
@@ -105,7 +105,7 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.putUsuario(payload, id).then((response) => {
+      Usuarios.putUsuario(payload, id).then(response => {
         expect(response.status).to.eq(400)
         expect(response.body.message).to.eq('Este email já está sendo usado')
       })
@@ -123,13 +123,13 @@ describe('Test **/API /usuarios', () => {
         administrador: 'true',
       }
 
-      Usuarios.postUsuarios(payload).then((response) => {
+      Usuarios.postUsuarios(payload).then(response => {
         id = response.body._id
       })
     })
 
     it('Deletar um usuário com sucesso', () => {
-      Usuarios.delUsuario(id).then((response) => {
+      Usuarios.delUsuario(id).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body.message).to.eq('Registro excluído com sucesso')
       })
@@ -138,7 +138,7 @@ describe('Test **/API /usuarios', () => {
     it('Tentar deletar um usuário que não existe', () => {
       id = 'A7K9X2M4P8Q1R6T5'
 
-      Usuarios.delUsuario(id).then((response) => {
+      Usuarios.delUsuario(id).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body.message).to.eq('Nenhum registro excluído')
       })

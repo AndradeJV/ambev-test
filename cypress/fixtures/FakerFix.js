@@ -12,4 +12,8 @@ export default new (class FakerFix {
   password() {
     return faker.internet.password({ length: 8 })
   }
-})()
+
+  nameProduct() {
+    return faker.internet.displayName()
+  }
+})

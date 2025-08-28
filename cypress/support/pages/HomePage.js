@@ -6,4 +6,12 @@ export default new (class HomePage {
   goToListUsers() {
     cy.get('[data-testid="listarUsuarios"]').click()
   }
+
+  goToRegisterProduct() {
+    cy.get('[data-testid="cadastrarProdutos"]').click()
+  }
+
+  goToListProduct() {
+    cy.get('[data-testid="listarProdutos"]').click()
+  }
 })

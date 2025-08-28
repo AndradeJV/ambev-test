@@ -15,14 +15,24 @@ describe('Usuários', () => {
     })
 
     it('Criar usuário', () => {
-      CadastrarUsuarioPage.registerUser(fakerFix.name(), fakerFix.email(), fakerFix.password(), false)
-  
+      CadastrarUsuarioPage.registerUser(
+        fakerFix.name(),
+        fakerFix.email(),
+        fakerFix.password(),
+        false
+      )
+
       cy.contains('Lista dos usuários').should('be.visible')
     })
-  
+
     it('Criar usuário como administrador', () => {
-      CadastrarUsuarioPage.registerUser(fakerFix.name(), fakerFix.email(), fakerFix.password(), true)
-  
+      CadastrarUsuarioPage.registerUser(
+        fakerFix.name(),
+        fakerFix.email(),
+        fakerFix.password(),
+        true
+      )
+
       cy.contains('Lista dos usuários').should('be.visible')
     })
   })

@@ -1,4 +1,4 @@
-export default new class CadastrarUsuarioPage {
+export default new (class CadastrarUsuarioPage {
   registerUser(name, email, password, admin = false) {
     cy.get('[data-testid="nome"]').type(name)
     cy.get('[data-testid="email"]').type(email)
@@ -10,4 +10,4 @@ export default new class CadastrarUsuarioPage {
 
     cy.get('[data-testid="cadastrarUsuario"]').click()
   }
-}
+})
