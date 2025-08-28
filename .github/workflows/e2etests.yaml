@@ -1,0 +1,46 @@
+name: CI - Cypress Tests - Ambev
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start application (if needed)
+        run: |
+          # Se precisar subir backend/local server
+          # npm run start &
+          echo "Caso tenha backend, descomente e ajuste aqui"
+        shell: bash
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 60
+
+      - name: Upload Cypress videos/screenshots
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
