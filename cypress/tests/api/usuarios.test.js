@@ -27,7 +27,7 @@ describe('Test **/API /usuarios', () => {
       })
     })
 
-    it.only('Listar um único usuário', () => {
+    it('Listar um único usuário', () => {
       Usuarios.getUsuario(userId).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('nome')
