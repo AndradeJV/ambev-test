@@ -4,6 +4,21 @@ import { faker } from '@faker-js/faker'
 
 describe('Test **/API /usuarios', () => {
   context('Listar usuários', () => {
+    let userId
+
+    beforeEach(() => {
+      const payload = {
+        nome: 'Fulano da Silva',
+        email: faker.internet.email().toLowerCase(),
+        password: 'teste',
+        administrador: 'true',
+      }
+
+      Usuarios.postUsuarios(payload).then(response => {
+        userId = response.body._id
+      })
+    })
+
     it('Listar todos usuários', () => {
       Usuarios.getUsuarios().then(response => {
         expect(response.status).to.eq(200)
@@ -12,10 +27,8 @@ describe('Test **/API /usuarios', () => {
       })
     })
 
-    it('Listar um único usuário', () => {
-      let usuarioId = '0L5lq3Nm2CI802Vq'
-
-      Usuarios.getUsuario(usuarioId).then(response => {
+    it.only('Listar um único usuário', () => {
+      Usuarios.getUsuario(userId).then(response => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('nome')
         expect(response.body).to.have.property('email')
