@@ -1,8 +1,9 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
+require('dotenv').config()
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "http://localhost:3000",
+    baseUrl: 'https://front.serverest.dev/login',
     viewportWidth: 1366,
     viewportHeight: 768,
     video: true,
@@ -13,10 +14,12 @@ module.exports = defineConfig({
     },
     env: {
       apiUrl: 'https://serverest.dev/',
+      userEmail: process.env.USER_EMAIL,
+      userPassword: process.env.USER_PASS,
     },
 
     apiUrl: 'https://serverest.dev/',
     specPattern: 'cypress/tests/**/*.test.{js,jsx,ts,tsx}',
     setupNodeEvents(on, config) {},
   },
-});
+})
