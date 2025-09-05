@@ -2,7 +2,7 @@ import LoginPage from '../../support/pages/LoginPage'
 import HomePage from '../../support/pages/HomePage'
 import CadastrarUsuarioPage from '../../support/pages/CadastrarUsuarioPage'
 import ListarUsuarioPage from '../../support/pages/ListarUsuarioPage'
-import fakerFix from '../../fixtures/fakerFix'
+import fakerFix from '../../fixtures/libFaker'
 
 describe('Usuários', () => {
   beforeEach(() => {

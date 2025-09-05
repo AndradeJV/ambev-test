@@ -2,7 +2,7 @@ import LoginPage from '../../support/pages/LoginPage'
 import HomePage from '../../support/pages/HomePage'
 import CadastrarProdutoPage from '../../support/pages/CadastrarProdutoPage'
 import ListarProdutosPage from '../../support/pages/ListarProdutosPage'
-import fakerFix from '../../fixtures/fakerFix'
+import fakerFix from '../../fixtures/libFaker'
 
 describe('Produtos', () => {
   beforeEach(() => {
