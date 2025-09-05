@@ -81,6 +81,7 @@ describe('Login', () => {
 
 - Baixar repositório
 - Instalar com `npm install`
+- Criar um arquivo .env assim como consta o `.env-example`
 
 Dentro do projeto, foi preciso utilizar o before no e2e para criar um usuário padrão no projeto, a aplicação deve conter um job de exclusão de usuário.
 
