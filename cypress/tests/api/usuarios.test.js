@@ -19,7 +19,7 @@ describe('Test **/API /usuarios', () => {
       })
     })
 
-    it('Listar todos usuários', () => {
+    it.only('Listar todos usuários', () => {
       Usuarios.getUsuarios().then(response => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('usuarios')

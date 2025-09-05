@@ -77,6 +77,13 @@ describe('Login', () => {
 })
 ```
 
+## Explicação de execução
+
+- Baixar repositório
+- Instalar com `npm install`
+
+Dentro do projeto, foi preciso utilizar o before no e2e para criar um usuário padrão no projeto, a aplicação deve conter um job de exclusão de usuário.
+
 ## 👨‍💻 Autor
 
 Desenvolvido por João Andrade
